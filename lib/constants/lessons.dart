@@ -35,8 +35,9 @@ final List<Lesson> lessons = [
     ],
     'assets/images/72_Distracted-Driving.webp',
     [
-      MatchingTask('Task 1'),
-      SpeakingTask('Task 2'),
+      MatchingTask('Matching'),
+      MultipleChoiceTask('Multiple Choice'),
+      SpeakingTask('Speaking'),
     ],
   ),
   Lesson(
@@ -71,7 +72,49 @@ final List<Lesson> lessons = [
     ],
     'assets/images/73_Online-Privacy.webp',
     [
-      MultipleChoiceTask('Task 1'),
+      MatchingTask('Matching'),
+      MultipleChoiceTask('Multiple Choice'),
+      SpeakingTask('Speaking'),
     ],
   ),
+  Lesson(
+    91,
+    'Animals',
+    'Students learn animal vocabulary through various writing and speaking activities. They also practice question formation and learn common expressions used to talk about animals.',
+    ['Beg – Low Int', 'All ages', 'K–12'],
+    [
+      'foundational',
+      'grammar',
+      'vocabulary',
+      'defining & describing animals',
+      'asking & answering questions',
+      'to be',
+      'adjectives',
+      'simple present',
+      'productive'
+    ],
+    [
+      'anteater',
+      'armadillo',
+      'baboon',
+      'bear',
+      'beaver',
+      'bison',
+      'camel',
+      'cat',
+      'chimpanzee',
+      'chipmunk',
+      'deer',
+      'dog',
+      'donkey',
+      'elephant',
+      'more...'
+    ],
+    'assets/images/91_Animals.webp',
+    [
+      MatchingTask('Matching'),
+      MultipleChoiceTask('Multiple Choice'),
+      SpeakingTask('Speaking'),
+    ],
+  )
 ];
