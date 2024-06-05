@@ -35,11 +35,12 @@ final ThemeData lightTheme = ThemeData(
     ),
   ),
   appBarTheme: const AppBarTheme(
+    backgroundColor: Colors.white,
     surfaceTintColor: Colors.transparent,
     shadowColor: Colors.black54,
     toolbarHeight: 64,
     elevation: 2,
-    // actionsIconTheme:
+    scrolledUnderElevation: 2,
   ),
   navigationBarTheme: const NavigationBarThemeData(
     backgroundColor: Colors.white,

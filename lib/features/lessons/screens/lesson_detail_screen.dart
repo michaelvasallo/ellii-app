@@ -22,10 +22,16 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
     });
   }
 
+  void _launchTasks() {
+    setState(() {
+      _selectedIndex = 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     List<Widget> pages = [
-      LessonOverviewScreen(lesson: widget.lesson),
+      LessonOverviewScreen(lesson: widget.lesson, launchTasks: _launchTasks),
       LessonTasksScreen(tasks: widget.lesson.tasks),
     ];
 
@@ -37,8 +43,12 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
         builder: (context, constraints) {
           if (constraints.maxWidth > 450) {
             return Row(
+              textDirection: TextDirection.rtl,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Expanded(
+                  child: pages[_selectedIndex],
+                ),
                 NavigationRail(
                   selectedIndex: _selectedIndex,
                   onDestinationSelected: _onDestinationSelected,
@@ -53,10 +63,7 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
                       label: Text('Tasks'),
                     ),
                   ],
-                  elevation: 8,
-                ),
-                Expanded(
-                  child: pages[_selectedIndex],
+                  elevation: 4,
                 ),
               ],
             );
