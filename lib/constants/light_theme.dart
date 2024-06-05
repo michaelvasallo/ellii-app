@@ -27,6 +27,7 @@ final ThemeData lightTheme = ThemeData(
       color: Colors.black87,
       fontFamily: 'OpenSans',
       fontWeight: FontWeight.bold,
+      letterSpacing: -0.5,
     ),
     titleSmall: TextStyle(
       color: Colors.black87,

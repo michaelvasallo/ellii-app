@@ -35,9 +35,9 @@ final List<Lesson> lessons = [
     ],
     'assets/images/72_Distracted-Driving.webp',
     [
-      MatchingTask('Matching'),
-      MultipleChoiceTask('Multiple Choice'),
-      SpeakingTask('Speaking'),
+      MatchingTask('Vocabulary Preview'),
+      MultipleChoiceTask('Vocabulary Review'),
+      SpeakingTask('Pronunciation'),
     ],
   ),
   Lesson(
@@ -72,9 +72,9 @@ final List<Lesson> lessons = [
     ],
     'assets/images/73_Online-Privacy.webp',
     [
-      MatchingTask('Matching'),
-      MultipleChoiceTask('Multiple Choice'),
-      SpeakingTask('Speaking'),
+      MatchingTask('Vocabulary Preview'),
+      MultipleChoiceTask('Vocabulary Review'),
+      SpeakingTask('Pronunciation'),
     ],
   ),
   Lesson(
@@ -112,8 +112,6 @@ final List<Lesson> lessons = [
     ],
     'assets/images/91_Animals.webp',
     [
-      MatchingTask('Matching'),
-      MultipleChoiceTask('Multiple Choice'),
       SpeakingTask('Speaking'),
     ],
   )
