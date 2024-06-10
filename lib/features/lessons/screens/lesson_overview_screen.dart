@@ -20,7 +20,7 @@ class LessonOverviewScreen extends StatelessWidget {
     return ListView(
       children: [
         Hero(
-          tag: 'lesson_image_${lesson.id}',
+          tag: 'lesson-image-${lesson.id}',
           child: Image.asset(
             lesson.imageUrl,
             fit: BoxFit.cover,
@@ -68,9 +68,9 @@ class LessonOverviewScreen extends StatelessWidget {
                 alignment: MainAxisAlignment.start,
                 children: [
                   FilledButton.icon(
-                    onPressed: launchTasks,
-                    icon: const Icon(Icons.devices),
+                    icon: const Icon(Icons.devices, size: 16),
                     label: const Text('Launch Tasks'),
+                    onPressed: launchTasks,
                   )
                 ],
               ),

@@ -22,7 +22,7 @@ class LessonCard extends StatelessWidget {
             children: [
               Expanded(
                 child: Hero(
-                  tag: 'lesson_image_${lesson.id}',
+                  tag: 'lesson-image-${lesson.id}',
                   child: ClipRRect(
                     borderRadius:
                         const BorderRadius.vertical(top: Radius.circular(8)),

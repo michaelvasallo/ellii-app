@@ -1,10 +1,15 @@
 import 'task.dart';
 
 class SpeakingTask extends Task {
-  SpeakingTask(super.title);
+  SpeakingTask(super.id, super.title, super.instructions);
 
   @override
   String taskType() {
     return 'Speaking';
+  }
+
+  @override
+  String taskIconPath() {
+    return 'assets/images/Task-Icon_Speaking.png';
   }
 }

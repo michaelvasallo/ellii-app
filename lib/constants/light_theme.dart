@@ -10,6 +10,7 @@ final ThemeData lightTheme = ThemeData(
     onSecondary: Colors.white,
     tertiary: Color(0xFFFED502),
     onTertiary: Colors.black,
+    tertiaryContainer: Color(0xFFFFF0A4),
     error: Colors.red,
     onError: Colors.white,
     surface: Colors.white,
@@ -17,20 +18,31 @@ final ThemeData lightTheme = ThemeData(
     surfaceContainer: Color(0xFFF3F5FD),
   ),
   textTheme: const TextTheme(
+    headlineLarge: TextStyle(
+      fontFamily: 'OpenSans',
+      fontWeight: FontWeight.bold,
+      letterSpacing: -1,
+    ),
+    headlineMedium: TextStyle(
+      fontFamily: 'OpenSans',
+      fontWeight: FontWeight.bold,
+      letterSpacing: -0.5,
+    ),
+    headlineSmall: TextStyle(
+      fontFamily: 'OpenSans',
+      fontWeight: FontWeight.bold,
+    ),
     titleLarge: TextStyle(
-      color: Colors.black87,
       fontFamily: 'OpenSans',
       fontWeight: FontWeight.bold,
       letterSpacing: -1,
     ),
     titleMedium: TextStyle(
-      color: Colors.black87,
       fontFamily: 'OpenSans',
       fontWeight: FontWeight.bold,
       letterSpacing: -0.5,
     ),
     titleSmall: TextStyle(
-      color: Colors.black87,
       fontFamily: 'OpenSans',
       fontWeight: FontWeight.bold,
     ),

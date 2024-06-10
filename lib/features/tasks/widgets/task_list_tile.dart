@@ -31,6 +31,11 @@ class TaskListTile extends StatelessWidget {
     }
 
     return ListTile(
+      leading: Image.asset(
+        task.taskIconPath(),
+        width: 40,
+        height: 40,
+      ),
       title: Text(task.title, style: Theme.of(context).textTheme.titleMedium),
       subtitle:
           Text(task.taskType(), style: Theme.of(context).textTheme.labelMedium),
