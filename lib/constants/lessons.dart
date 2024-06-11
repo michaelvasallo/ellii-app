@@ -1,4 +1,5 @@
 import '../features/lessons/models/lesson.dart';
+import '../features/tasks/models/matching/match_pair.dart';
 import '../features/tasks/models/matching_task.dart';
 import '../features/tasks/models/multiple_choice_task.dart';
 import '../features/tasks/models/speaking_task.dart';
@@ -35,9 +36,22 @@ final List<Lesson> lessons = [
     ],
     'assets/images/72_Distracted-Driving.webp',
     [
-      MatchingTask('Vocabulary Preview'),
-      MultipleChoiceTask('Vocabulary Review'),
-      SpeakingTask('Pronunciation'),
+      MatchingTask(
+        1,
+        'Vocabulary Preview',
+        'Match each word or phrase with the correct definition.',
+        [
+          MatchPair('distracted', 'not focused on something'),
+          MatchPair('visual', 'related to the use of one’s eyes'),
+          MatchPair(
+              'manual', 'related to the use of one’s hands, not automatic'),
+          MatchPair('cognitive', 'related to the use of one’s mind'),
+          MatchPair(
+              'behind the wheel', 'driving, being the driver of a vehicle'),
+        ],
+      ),
+      MultipleChoiceTask(2, 'Vocabulary Review', ''),
+      SpeakingTask(3, 'Pronunciation', ''),
     ],
   ),
   Lesson(
@@ -72,9 +86,23 @@ final List<Lesson> lessons = [
     ],
     'assets/images/73_Online-Privacy.webp',
     [
-      MatchingTask('Vocabulary Preview'),
-      MultipleChoiceTask('Vocabulary Review'),
-      SpeakingTask('Pronunciation'),
+      MatchingTask(
+        1,
+        'Vocabulary Preview',
+        'Match each word or phrase with the correct definition.',
+        [
+          MatchPair('scandal', 'the public disgrace of an important figure'),
+          MatchPair('notify', 'to tell, to make someone aware of something'),
+          MatchPair('campaign',
+              'an organized effort to promote a candidate or cause'),
+          MatchPair('breach', 'a failure to observe a rule or law'),
+          MatchPair('policy', 'a rule or guideline'),
+          MatchPair(
+              'data', 'information that can be stored and shared digitally'),
+        ],
+      ),
+      MultipleChoiceTask(2, 'Vocabulary Review', ''),
+      SpeakingTask(3, 'Pronunciation', ''),
     ],
   ),
   Lesson(
@@ -112,7 +140,7 @@ final List<Lesson> lessons = [
     ],
     'assets/images/91_Animals.webp',
     [
-      SpeakingTask('Speaking'),
+      SpeakingTask(1, 'Speaking', ''),
     ],
   )
 ];
