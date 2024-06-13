@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 import '../models/task.dart';
 import '../models/task_result.dart';
@@ -54,9 +55,11 @@ abstract class TaskScreenState extends State<TaskScreen> {
               style: Theme.of(context).textTheme.headlineLarge,
             ),
             const SizedBox(height: 8),
-            Text(
-              widget.task.instructions,
-              textAlign: TextAlign.center,
+            MarkdownBody(
+              data: widget.task.instructions,
+              styleSheet: MarkdownStyleSheet(
+                textAlign: WrapAlignment.center,
+              ),
             ),
             const SizedBox(height: 16),
             FilledButton.icon(
