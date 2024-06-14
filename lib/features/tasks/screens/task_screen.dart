@@ -19,24 +19,29 @@ abstract class TaskScreenState extends State<TaskScreen> {
   TaskViewState currentView = TaskViewState.start;
   TaskResult result = TaskResult();
 
+  @mustCallSuper
   void startTask() {
     setState(() {
       currentView = TaskViewState.task;
     });
   }
 
+  @mustCallSuper
   void submitTask() {
     setState(() {
       currentView = TaskViewState.result;
     });
   }
 
+  @mustCallSuper
   void restartTask() {
     setState(() {
       currentView = TaskViewState.start;
       resetTask();
     });
   }
+
+  void resetTask();
 
   Widget buildStartView() {
     return Center(
@@ -72,6 +77,8 @@ abstract class TaskScreenState extends State<TaskScreen> {
       ),
     );
   }
+
+  Widget buildTaskView();
 
   Widget buildResultView() {
     return Container(
@@ -142,8 +149,4 @@ abstract class TaskScreenState extends State<TaskScreen> {
         return buildStartView();
     }
   }
-
-  Widget buildTaskView();
-
-  void resetTask();
 }
