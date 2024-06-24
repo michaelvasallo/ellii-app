@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../../models/matching/match_pair.dart';
 import 'word_chip.dart';
 
-class MatchPairDragTarget extends StatelessWidget {
-  const MatchPairDragTarget({
+class DefinitionDragTarget extends StatelessWidget {
+  const DefinitionDragTarget({
     super.key,
-    required this.pair,
+    required this.word,
     required this.index,
     required this.onAccept,
   });
 
-  final MatchPair pair;
+  final String? word;
   final int index;
   final Function(int, DragTargetDetails<String>) onAccept;
 
@@ -35,15 +34,15 @@ class MatchPairDragTarget extends StatelessWidget {
             borderRadius: BorderRadius.circular(4),
           ),
           child: Center(
-            child: pair.matchedWord != null
+            child: word != null
                 ? Draggable<String>(
-                    data: pair.matchedWord!,
+                    data: word,
                     feedback: Material(
                       color: Colors.transparent,
-                      child: WordChip.expanded(pair.matchedWord!),
+                      child: WordChip.expanded(word!),
                     ),
                     childWhenDragging: questionMark,
-                    child: WordChip.expanded(pair.matchedWord!),
+                    child: WordChip.expanded(word!),
                   )
                 : questionMark,
           ),

@@ -1,5 +1,5 @@
 import '../features/lessons/models/lesson.dart';
-import '../features/tasks/models/matching/match_pair.dart';
+import '../features/tasks/models/matching/matching_pair.dart';
 import '../features/tasks/models/matching_task.dart';
 import '../features/tasks/models/multiple_choice/multiple_choice_question.dart';
 import '../features/tasks/models/multiple_choice_task.dart';
@@ -42,12 +42,12 @@ final List<Lesson> lessons = [
         'Vocabulary Preview',
         'Match each word or phrase with the correct definition.',
         [
-          MatchPair('distracted', 'not focused on something'),
-          MatchPair('visual', 'related to the use of one’s eyes'),
-          MatchPair(
+          MatchingPair('distracted', 'not focused on something'),
+          MatchingPair('visual', 'related to the use of one’s eyes'),
+          MatchingPair(
               'manual', 'related to the use of one’s hands, not automatic'),
-          MatchPair('cognitive', 'related to the use of one’s mind'),
-          MatchPair(
+          MatchingPair('cognitive', 'related to the use of one’s mind'),
+          MatchingPair(
               'behind the wheel', 'driving, being the driver of a vehicle'),
         ],
       ),
@@ -137,13 +137,13 @@ final List<Lesson> lessons = [
         'Vocabulary Preview',
         'Match each word or phrase with the correct definition.',
         [
-          MatchPair('scandal', 'the public disgrace of an important figure'),
-          MatchPair('notify', 'to tell, to make someone aware of something'),
-          MatchPair('campaign',
+          MatchingPair('scandal', 'the public disgrace of an important figure'),
+          MatchingPair('notify', 'to tell, to make someone aware of something'),
+          MatchingPair('campaign',
               'an organized effort to promote a candidate or cause'),
-          MatchPair('breach', 'a failure to observe a rule or law'),
-          MatchPair('policy', 'a rule or guideline'),
-          MatchPair(
+          MatchingPair('breach', 'a failure to observe a rule or law'),
+          MatchingPair('policy', 'a rule or guideline'),
+          MatchingPair(
               'data', 'information that can be stored and shared digitally'),
         ],
       ),

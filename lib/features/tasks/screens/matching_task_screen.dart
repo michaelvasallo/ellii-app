@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../models/matching/match_pair.dart';
+import '../models/matching/matching_item.dart';
 import '../models/matching_task.dart';
 import '../models/task_result.dart';
-import '../widgets/matching/match_pair_drag_target.dart';
+import '../widgets/matching/definition_drag_target.dart';
 import '../widgets/matching/word_bank_drag_target.dart';
 import 'task_screen.dart';
 
@@ -15,8 +15,8 @@ class MatchingTaskScreen extends TaskScreen {
 }
 
 class MatchingTaskScreenState extends TaskScreenState {
-  late List<String> wordBank;
-  late List<MatchPair> matchPairs;
+  late List<String> _wordBank;
+  late List<MatchingItem> _items;
 
   @override
   void initState() {
@@ -26,63 +26,63 @@ class MatchingTaskScreenState extends TaskScreenState {
 
   @override
   void resetTask() {
-    matchPairs = (widget.task as MatchingTask).cloneMatchPairs();
-    wordBank = List.from(matchPairs.map((pair) => pair.word));
-    matchPairs.shuffle();
-    wordBank.shuffle();
+    final pairs = (widget.task as MatchingTask).pairs;
+    _items = pairs.map((pair) => MatchingItem(pair)).toList();
+    _wordBank = pairs.map((pair) => pair.word).toList();
+    _items.shuffle();
+    _wordBank.shuffle();
   }
 
   @override
   void submitTask() {
     int correctMatches =
-        matchPairs.where((pair) => pair.matchedWord == pair.word).length;
+        _items.where((item) => item.matchedWord == item.pair.word).length;
     result = TaskResult(
-      body: 'You got $correctMatches out of ${matchPairs.length} correct.',
-      score: correctMatches / matchPairs.length,
+      body: 'You got $correctMatches out of ${_items.length} correct.',
+      score: correctMatches / _items.length,
     );
     super.submitTask();
   }
 
-  void onAcceptToMatchPair(int index, DragTargetDetails<String> details) {
+  void _onAcceptToMatchPair(int index, DragTargetDetails<String> details) {
     setState(() {
       final newWord = details.data;
 
       // Find the current position of the new word
       int currentIndex =
-          matchPairs.indexWhere((pair) => pair.matchedWord == newWord);
+          _items.indexWhere((pair) => pair.matchedWord == newWord);
 
       // Remove from current position
       if (currentIndex != -1) {
-        matchPairs[currentIndex].matchedWord = null;
+        _items[currentIndex].matchedWord = null;
       }
 
       // Swap the words if the target already has a word
-      if (matchPairs[index].matchedWord != null) {
-        final oldWord = matchPairs[index].matchedWord!;
+      if (_items[index].matchedWord != null) {
+        final oldWord = _items[index].matchedWord!;
         if (currentIndex == -1) {
-          wordBank.add(oldWord);
+          _wordBank.add(oldWord);
         } else {
-          matchPairs[currentIndex].matchedWord = oldWord;
+          _items[currentIndex].matchedWord = oldWord;
         }
       }
 
-      wordBank.remove(newWord);
-      matchPairs[index].matchedWord = newWord;
+      _wordBank.remove(newWord);
+      _items[index].matchedWord = newWord;
     });
   }
 
-  void onAcceptToWordBank(DragTargetDetails<String> details) {
+  void _onAcceptToWordBank(DragTargetDetails<String> details) {
     setState(() {
       final word = details.data;
 
       // Find the current position of the word
-      int currentIndex =
-          matchPairs.indexWhere((pair) => pair.matchedWord == word);
+      int currentIndex = _items.indexWhere((pair) => pair.matchedWord == word);
 
       // Remove from current position and add back to available words
       if (currentIndex != -1) {
-        matchPairs[currentIndex].matchedWord = null;
-        wordBank.add(word);
+        _items[currentIndex].matchedWord = null;
+        _wordBank.add(word);
       }
     });
   }
@@ -92,14 +92,14 @@ class MatchingTaskScreenState extends TaskScreenState {
     return Column(
       children: [
         WordBankDragTarget(
-          wordBank: wordBank,
-          onAccept: onAcceptToWordBank,
+          wordBank: _wordBank,
+          onAccept: _onAcceptToWordBank,
         ),
         Expanded(
           child: ListView(
             padding: const EdgeInsets.all(16),
             children: [
-              for (int index = 0; index < matchPairs.length; index++)
+              for (int index = 0; index < _items.length; index++)
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   child: Row(
@@ -119,14 +119,14 @@ class MatchingTaskScreenState extends TaskScreenState {
                         ),
                       ),
                       const SizedBox(width: 8),
-                      MatchPairDragTarget(
-                        pair: matchPairs[index],
+                      DefinitionDragTarget(
+                        word: _items[index].matchedWord,
                         index: index,
-                        onAccept: onAcceptToMatchPair,
+                        onAccept: _onAcceptToMatchPair,
                       ),
                       const SizedBox(width: 16),
                       Expanded(
-                        child: Text(matchPairs[index].definition),
+                        child: Text(_items[index].pair.definition),
                       ),
                     ],
                   ),
@@ -138,7 +138,7 @@ class MatchingTaskScreenState extends TaskScreenState {
                   FilledButton.icon(
                     icon: const Icon(Icons.auto_fix_high, size: 16),
                     label: const Text("I'm finished"),
-                    onPressed: wordBank.isEmpty ? submitTask : null,
+                    onPressed: _wordBank.isEmpty ? submitTask : null,
                   ),
                 ],
               ),

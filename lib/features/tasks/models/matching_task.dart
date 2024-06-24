@@ -1,16 +1,10 @@
-import 'matching/match_pair.dart';
+import 'matching/matching_pair.dart';
 import 'task.dart';
 
 class MatchingTask extends Task {
-  MatchingTask(super.id, super.title, super.instructions, this.matchPairs);
+  MatchingTask(super.id, super.title, super.instructions, this.pairs);
 
-  final List<MatchPair> matchPairs;
-
-  List<MatchPair> cloneMatchPairs() {
-    return matchPairs
-        .map((pair) => MatchPair(pair.word, pair.definition))
-        .toList();
-  }
+  final List<MatchingPair> pairs;
 
   @override
   String taskType() {
