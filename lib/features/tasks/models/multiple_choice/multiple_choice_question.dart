@@ -1,7 +1,7 @@
 class MultipleChoiceQuestion {
-  MultipleChoiceQuestion(this.question, this.options, this.correctOption);
+  MultipleChoiceQuestion(this.body, this.options, this.correctOption);
 
-  final String question;
+  final String body;
   final List<String> options;
   final String correctOption;
 }
