@@ -1,7 +1,9 @@
 import 'task.dart';
 
 class SpeakingTask extends Task {
-  SpeakingTask(super.id, super.title, super.instructions);
+  SpeakingTask(super.id, super.title, super.instructions, this.phrases);
+
+  final List<String> phrases;
 
   @override
   String taskType() {

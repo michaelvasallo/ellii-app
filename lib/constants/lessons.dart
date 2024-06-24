@@ -86,7 +86,18 @@ final List<Lesson> lessons = [
           ),
         ],
       ),
-      SpeakingTask(3, 'Pronunciation', ''),
+      SpeakingTask(
+        3,
+        'Pronunciation',
+        'Read the words or phrases and record your pronunciation.',
+        [
+          'distracted',
+          'visual',
+          'manual',
+          'cognitive',
+          'behind the wheel',
+        ],
+      ),
     ],
   ),
   Lesson(
@@ -183,7 +194,19 @@ final List<Lesson> lessons = [
           ),
         ],
       ),
-      SpeakingTask(3, 'Pronunciation', ''),
+      SpeakingTask(
+        3,
+        'Pronunciation',
+        'Read the words or phrases and record your pronunciation.',
+        [
+          'scandal',
+          'notify',
+          'campaign',
+          'breach',
+          'policy',
+          'data',
+        ],
+      ),
     ],
   ),
   Lesson(
@@ -221,7 +244,19 @@ final List<Lesson> lessons = [
     ],
     'assets/images/91_Animals.webp',
     [
-      SpeakingTask(1, 'Speaking', ''),
+      SpeakingTask(
+        3,
+        'Pronunciation',
+        'Read the words or phrases and record your pronunciation.',
+        [
+          'elephant',
+          'rabbit',
+          'zebra',
+          'panda',
+          'monkey',
+          'bear',
+        ],
+      ),
     ],
   )
 ];
