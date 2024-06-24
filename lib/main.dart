@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'constants/light_theme.dart';
 import 'features/lessons/screens/lesson_list_screen.dart';
 
-void main() {
+Future main() async {
+  await dotenv.load();
   runApp(const MainApp());
 }
 

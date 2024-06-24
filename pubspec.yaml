@@ -9,7 +9,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_animate:
+  flutter_dotenv:
   flutter_markdown:
+  flutter_sound:
+  http:
+  path_provider:
+  permission_handler:
 
 dev_dependencies:
   flutter_test:
@@ -22,6 +28,7 @@ flutter:
   assets:
     - assets/images/
     - assets/fonts/
+    - .env
   fonts:
     - family: OpenSans
       fonts:
